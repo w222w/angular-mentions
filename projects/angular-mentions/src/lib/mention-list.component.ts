@@ -24,7 +24,7 @@ import { getCaretCoordinates } from './caret-coords';
         [class.active]="activeIndex==i" [class.mention-active]="!styleOff && activeIndex==i">
         <a class="dropdown-item" [class.mention-item]="!styleOff"
           (mousedown)="activeIndex=i;itemClick.emit();$event.preventDefault()"
-          (tap)="activeIndex=i;itemClick.emit();$event.preventDefault()"
+          (tap)="activeIndex=i;itemClick.emit();$event.preventDefault(); $event.stopPropagation();"
           >
           <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{'item':item}"></ng-template>
         </a>
