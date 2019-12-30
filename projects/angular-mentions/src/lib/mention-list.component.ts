@@ -7,7 +7,7 @@ import { getCaretCoordinates } from './caret-coords';
 
 /**
  * Angular Mentions.
- * https://github.com/dmacfarlane/angular-mentions
+ * https://github.com/w222w/angular-mentions
  *
  * Copyright (c) 2016 Dan MacFarlane
  */
@@ -23,7 +23,9 @@ import { getCaretCoordinates } from './caret-coords';
       <li *ngFor="let item of items; let i = index"
         [class.active]="activeIndex==i" [class.mention-active]="!styleOff && activeIndex==i">
         <a class="dropdown-item" [class.mention-item]="!styleOff"
-          (mousedown)="activeIndex=i;itemClick.emit();$event.preventDefault()">
+          (mousedown)="activeIndex=i;itemClick.emit();$event.preventDefault()"
+          (tap)="activeIndex=i;itemClick.emit();$event.preventDefault()"
+          >
           <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{'item':item}"></ng-template>
         </a>
       </li>
